@@ -68,3 +68,19 @@ if ('IntersectionObserver' in window) {
 }
 
 document.getElementById('year').textContent = new Date().getFullYear();
+// Make all “back to top” links work even when the fixed header is visible
+// or the current URL already contains #top.
+document.querySelectorAll('a[href="#top"]').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: reduceMotion ? 'auto' : 'smooth'
+    });
+    // Keep the address clean after returning to the top.
+    window.history.replaceState(null, document.title, `${window.location.pathname}${window.location.search}`);
+  });
+});
+
