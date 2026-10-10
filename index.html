@@ -43,6 +43,168 @@
     ]
   }
   </script>
+<!-- Styles scoped to the Published journal articles list. -->
+<style id="journal-articles-year-styles">
+/* Only the Published journal articles list is styled here.
+   Keep this block in index.html so no existing asset file needs replacement. */
+#journal-articles-by-year {
+  border-top: 0;
+}
+#journal-articles-by-year .journal-year-group + .journal-year-group {
+  margin-top: 46px;
+}
+#journal-articles-by-year .journal-year-heading {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 0 10px;
+}
+#journal-articles-by-year .journal-year-heading h4 {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--purple, #4e2a84);
+  font-size: clamp(34px, 3.6vw, 46px);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -.045em;
+}
+#journal-articles-by-year .journal-year-rule {
+  flex: 1 1 auto;
+  height: 2px;
+  min-width: 20px;
+  background: #d8c9ea;
+}
+#journal-articles-by-year .journal-year-count {
+  flex: 0 0 auto;
+  color: var(--muted, #686471);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+#journal-articles-by-year .publication {
+  grid-template-columns: 48px minmax(0, 1fr) 24px;
+  column-gap: 24px;
+  row-gap: 0;
+  padding: 28px 0;
+}
+#journal-articles-by-year .journal-year-group > .publication:last-child {
+  border-bottom: 0;
+}
+#journal-articles-by-year .pub-year {
+  padding-top: 1px;
+  line-height: 1.55;
+}
+#journal-articles-by-year .pub-number {
+  color: #a69cad;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.8;
+  letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
+}
+#journal-articles-by-year .pub-main {
+  min-width: 0;
+}
+#journal-articles-by-year .journal-publication-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 6px 20px;
+  margin-bottom: 8px;
+}
+#journal-articles-by-year .pub-journal {
+  min-width: 0;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.55;
+}
+#journal-articles-by-year .journal-publication-date {
+  color: var(--purple, #4e2a84);
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.55;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+#journal-articles-by-year .pub-main h5 {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 750;
+  line-height: 1.43;
+  letter-spacing: -.018em;
+}
+#journal-articles-by-year .pub-main h5 a {
+  text-decoration: none;
+}
+#journal-articles-by-year .pub-main h5 a:hover {
+  color: var(--purple, #4e2a84);
+}
+#journal-articles-by-year .pub-main h5 a:focus-visible {
+  outline: 2px solid var(--purple, #4e2a84);
+  outline-offset: 4px;
+}
+#journal-articles-by-year .pub-authors {
+  margin-top: 10px;
+}
+#journal-articles-by-year .pub-feature-note {
+  margin-top: 7px;
+}
+#journal-articles-by-year .pub-arrow {
+  display: block;
+  padding-top: 1px;
+  font-size: 22px;
+  line-height: 1.15;
+}
+@media (max-width: 760px) {
+  #journal-articles-by-year .journal-year-group + .journal-year-group {
+    margin-top: 34px;
+  }
+  #journal-articles-by-year .journal-year-heading {
+    gap: 16px;
+    margin-bottom: 4px;
+  }
+  #journal-articles-by-year .journal-year-heading h4 {
+    font-size: 34px;
+  }
+  #journal-articles-by-year .journal-year-count {
+    font-size: 12px;
+  }
+  #journal-articles-by-year .publication {
+    grid-template-columns: 26px minmax(0, 1fr);
+    column-gap: 12px;
+    padding: 25px 0;
+  }
+  #journal-articles-by-year .pub-number {
+    font-size: 12px;
+  }
+  #journal-articles-by-year .pub-journal {
+    font-size: 15px;
+  }
+  #journal-articles-by-year .journal-publication-date {
+    font-size: 14px;
+  }
+  #journal-articles-by-year .pub-main h5 {
+    font-size: 20px;
+  }
+  #journal-articles-by-year .pub-arrow {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  #journal-articles-by-year .journal-year-heading {
+    gap: 12px;
+  }
+  #journal-articles-by-year .journal-publication-meta {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 3px;
+    margin-bottom: 9px;
+  }
+  #journal-articles-by-year .journal-publication-date {
+    justify-self: start;
+  }
+}
+</style>
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -245,232 +407,382 @@
 <p class="eyebrow">Complete publication list</p>
 <h3>Published journal articles</h3>
 </div>
-</div><div aria-label="Published journal articles, newest first" class="publication-list unified-publication-list">
+</div><!-- EDIT: JOURNAL ARTICLES BY YEAR. Dates follow the supplied CV; newest first. -->
+<div aria-label="Published journal articles, grouped by year, newest first" class="publication-list unified-publication-list" id="journal-articles-by-year">
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2026">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2026">2026</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">5 publications</span>
+</div>
 <article class="publication reveal">
-<div class="pub-year"><span class="pub-number">25</span><span>2026</span></div>
+<div class="pub-year"><span class="pub-number">25</span></div>
 <div class="pub-main">
-<p class="pub-journal">Advanced Healthcare Materials, e71745 (2026)</p>
-<h3><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adhm.71745" rel="noopener noreferrer" target="_blank">NeuroVisio SyncPatch: A skin-conformal multimodal EMG-motion sensing platform for quantitative neuromuscular rehabilitation and performance monitoring</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Advanced Healthcare Materials, e71745</p>
+<time class="journal-publication-date" datetime="2026-09">Sep 2026</time>
+</div>
+<h5><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adhm.71745" rel="noopener noreferrer" target="_blank">NeuroVisio SyncPatch: A skin-conformal multimodal EMG-motion sensing platform for quantitative neuromuscular rehabilitation and performance monitoring</a></h5>
 <p class="pub-authors">B. Choi†, Y.-J. Jun†, H. Choee†, K.-D. Lee, H. Kim, Y. S. Hwang, <strong>C. Y. Kim</strong>, S. Chae, J. Lee, M. Je*, J.-W. Jeong*, and H.-S. Park*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">24</span><span>2026</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">24</span></div>
 <div class="pub-main">
-<p class="pub-journal">Nature Communications 17, 8490 (2026)</p>
-<h3><a href="https://www.nature.com/articles/s41467-026-76527-y" rel="noopener noreferrer" target="_blank">Wireless IoT-enabled microneedle electroceutical for personalized and connected pain management</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Nature Communications 17, 8490</p>
+<time class="journal-publication-date" datetime="2026-08">Aug 2026</time>
+</div>
+<h5><a href="https://www.nature.com/articles/s41467-026-76527-y" rel="noopener noreferrer" target="_blank">Wireless IoT-enabled microneedle electroceutical for personalized and connected pain management</a></h5>
 <p class="pub-authors">H. Kim†, S. K. Bang†, S.-Y. Kang, S. W. Kim, J.-S. Yang, D. Kim, <strong>C. Y. Kim</strong>, S. Han, Y. Jang, J. Lee, K.-C. Agno, J.-B. Yoon, S. Lee*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-
-</article><article class="publication reveal">  
-<div class="pub-year"><span class="pub-number">23</span><span>2026</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">23</span></div>
 <div class="pub-main">
-<p class="pub-journal">Science Advances 12, eaee8648 (2026)</p>
-<h3><a href="https://www.science.org/doi/10.1126/sciadv.aee8648" rel="noopener noreferrer" target="_blank">IoT-enabled wireless neural implant for chronic, programmable neuropharmacology and optogenetics</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Science Advances 12, eaee8648</p>
+<time class="journal-publication-date" datetime="2026-07">Jul 2026</time>
+</div>
+<h5><a href="https://www.science.org/doi/10.1126/sciadv.aee8648" rel="noopener noreferrer" target="_blank">IoT-enabled wireless neural implant for chronic, programmable neuropharmacology and optogenetics</a></h5>
 <p class="pub-authors">E. Y. Jeong†, J. W. Park†, S. Cho, D. Han, <strong>C. Y. Kim</strong>, S. W. Kim, W. Lee, W. Y. Kim*, J.-H. Kim*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">22</span><span>2026</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">22</span></div>
 <div class="pub-main">
-<p class="pub-journal">STAR Protocols 7(2), 104453 (2026)</p>
-<h3><a href="https://www.cell.com/star-protocols/fulltext/S2666-1667(26)00106-1" rel="noopener noreferrer" target="_blank">Protocol to design and implement scalable wireless network system for high-throughput, automated behavioral and circuit neuroscience in mice</a></h3><p class="pub-feature-note">Featured on the Cover</p>
+<div class="journal-publication-meta">
+<p class="pub-journal">STAR Protocols 7(2), 104453</p>
+<time class="journal-publication-date" datetime="2026-06">Jun 2026</time>
+</div>
+<h5><a href="https://www.cell.com/star-protocols/fulltext/S2666-1667(26)00106-1" rel="noopener noreferrer" target="_blank">Protocol to design and implement scalable wireless network system for high-throughput, automated behavioral and circuit neuroscience in mice</a></h5>
 <p class="pub-authors"><strong>C. Y. Kim†</strong>, K. E. Parker†, E. Y. Jeong, D. Han, Y. Jang, S.-Y. Joo, J. Lee, C. Chiangchaisakunthai, R. Qazi, J. Chung, S. Ha, J.-W. Jeong*, and J. G. McCall*</p>
+<p class="pub-feature-note">Featured on the Cover</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">21</span><span>2026</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">21</span></div>
 <div class="pub-main">
-<p class="pub-journal">npj Flexible Electronics 10, 96 (2026)</p>
-<h3><a href="https://www.nature.com/articles/s41528-026-00592-y" rel="noopener noreferrer" target="_blank">Skin-like blind-spot-free tactile sensing via phase-programmable multimode liquid metal pressure sensors</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">npj Flexible Electronics 10, 96</p>
+<time class="journal-publication-date" datetime="2026-05">May 2026</time>
+</div>
+<h5><a href="https://www.nature.com/articles/s41528-026-00592-y" rel="noopener noreferrer" target="_blank">Skin-like blind-spot-free tactile sensing via phase-programmable multimode liquid metal pressure sensors</a></h5>
 <p class="pub-authors">Y. Ahn†, S. Lee†, <strong>C. Y. Kim</strong>, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">20</span><span>2025</span></div>
+</article>
+</div>
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2025">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2025">2025</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">5 publications</span>
+</div>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">20</span></div>
 <div class="pub-main">
-<p class="pub-journal">Nature Communications 16, 7797 (2025)</p>
-<h3><a href="https://www.nature.com/articles/s41467-025-63025-w" rel="noopener noreferrer" target="_blank">Integrating artificial intelligence and optogenetics for Parkinson’s disease diagnosis and therapeutics in male mice</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Nature Communications 16, 7797</p>
+<time class="journal-publication-date" datetime="2025-08">Aug 2025</time>
+</div>
+<h5><a href="https://www.nature.com/articles/s41467-025-63025-w" rel="noopener noreferrer" target="_blank">Integrating artificial intelligence and optogenetics for Parkinson’s disease diagnosis and therapeutics in male mice</a></h5>
 <p class="pub-authors">B. Hyeon, J. Shin, J.-H. Lee, W. Kim, J. Kwon, H. Lee, D.-G. Kim, <strong>C. Y. Kim</strong>, S. Choi, J.-W. Jeong, K.-S. Kim, C. J. Lee*, D. Kim*, and W. D. Heo*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">19</span><span>2025</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">19</span></div>
 <div class="pub-main">
-<p class="pub-journal">Advanced Electronic Materials 11(10), 2400884 (2025)</p>
-<h3><a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aelm.202400884" rel="noopener noreferrer" target="_blank">Wireless technologies for wearable electronics: A review</a></h3><p class="pub-feature-note">Featured on the Front Cover</p>
+<div class="journal-publication-meta">
+<p class="pub-journal">Advanced Electronic Materials 11(10), 2400884</p>
+<time class="journal-publication-date" datetime="2025-07">Jul 2025</time>
+</div>
+<h5><a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aelm.202400884" rel="noopener noreferrer" target="_blank">Wireless technologies for wearable electronics: A review</a></h5>
 <p class="pub-authors"><strong>C. Y. Kim†</strong>, J. Lee†, E. Y. Jeong, Y. Jang, H. Kim, B. Choi, D. Han, Y. Oh, and J.-W. Jeong*</p>
+<p class="pub-feature-note">Featured on the Front Cover</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">18</span><span>2025</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">18</span></div>
 <div class="pub-main">
-<p class="pub-journal">Advanced Materials 37(28), 2417913 (2025)</p>
-<h3><a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adma.202417913" rel="noopener noreferrer" target="_blank">Cephalopod-inspired magnetic shape-morphing system for complex 3D transformations with broad reconfigurability in 3D displays and soft robotics</a></h3><p class="pub-feature-note">Featured as the Frontispiece</p>
+<div class="journal-publication-meta">
+<p class="pub-journal">Advanced Materials 37(28), 2417913</p>
+<time class="journal-publication-date" datetime="2025-07">Jul 2025</time>
+</div>
+<h5><a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adma.202417913" rel="noopener noreferrer" target="_blank">Cephalopod-inspired magnetic shape-morphing system for complex 3D transformations with broad reconfigurability in 3D displays and soft robotics</a></h5>
 <p class="pub-authors">S. Oh, <strong>C. Y. Kim</strong>, S. Chung, and J.-W. Jeong*</p>
+<p class="pub-feature-note">Featured as the Frontispiece</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">17</span><span>2025</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">17</span></div>
 <div class="pub-main">
-<p class="pub-journal">Science Advances 11(22), eadv4921 (2025)</p>
-<h3><a href="https://www.science.org/doi/10.1126/sciadv.adv4921" rel="noopener noreferrer" target="_blank">Phase-change metal ink with pH-controlled chemical sintering for versatile and scalable fabrication of variable stiffness electronics</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Science Advances 11(22), eadv4921</p>
+<time class="journal-publication-date" datetime="2025-05">May 2025</time>
+</div>
+<h5><a href="https://www.science.org/doi/10.1126/sciadv.adv4921" rel="noopener noreferrer" target="_blank">Phase-change metal ink with pH-controlled chemical sintering for versatile and scalable fabrication of variable stiffness electronics</a></h5>
 <p class="pub-authors">S. Lee†, G.-H. Lee†, I. Kang, W. Jeon, S. Kim, Y. Ahn, <strong>C. Y. Kim</strong>, D. A Kwon, M. D. Dickey, S. Park*, S. Park*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">16</span><span>2025</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">16</span></div>
 <div class="pub-main">
-<p class="pub-journal">Advanced Science 12(4), 2406576 (2025)</p>
-<h3><a href="https://onlinelibrary.wiley.com/doi/10.1002/advs.202406576" rel="noopener noreferrer" target="_blank">Wireless modular implantable neural device with one-touch magnetic assembly for versatile neuromodulation</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Advanced Science 12(4), 2406576</p>
+<time class="journal-publication-date" datetime="2025-01">Jan 2025</time>
+</div>
+<h5><a href="https://onlinelibrary.wiley.com/doi/10.1002/advs.202406576" rel="noopener noreferrer" target="_blank">Wireless modular implantable neural device with one-touch magnetic assembly for versatile neuromodulation</a></h5>
 <p class="pub-authors">I. Kang†, J. Bilbily†, <strong>C. Y. Kim</strong>, C. Shi, M. K. Madasu, E. Y. Jeong, K. E. Parker, D. A Kwon, B.-J. Jung, J.-S. Yang, J. Lee, N. D.L. Kabbaj, W. Lee, J.-B. Yoon, R. Al-Hasani, J. Xiao, J. G. McCall*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">15</span><span>2024</span></div>
+</article>
+</div>
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2024">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2024">2024</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">4 publications</span>
+</div>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">15</span></div>
 <div class="pub-main">
-<p class="pub-journal">Neurobiology of Disease 203, 106733 (2024)</p>
-<h3><a href="https://www.sciencedirect.com/science/article/pii/S0969996124003358" rel="noopener noreferrer" target="_blank">Wireless optogenetic stimulation on the prelimbic to the nucleus accumbens core circuit attenuates cocaine-induced behavioral sensitization</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Neurobiology of Disease 203, 106733</p>
+<time class="journal-publication-date" datetime="2024-12">Dec 2024</time>
+</div>
+<h5><a href="https://www.sciencedirect.com/science/article/pii/S0969996124003358" rel="noopener noreferrer" target="_blank">Wireless optogenetic stimulation on the prelimbic to the nucleus accumbens core circuit attenuates cocaine-induced behavioral sensitization</a></h5>
 <p class="pub-authors">M. J. Ku†, <strong>C. Y. Kim† (Co-first)</strong>, J. W. Park, S. Lee, E. Y. Jeong, J.-W. Jeong*, W. Y. Kim*, and J.-H. Kim*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">14</span><span>2024</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">14</span></div>
 <div class="pub-main">
-<p class="pub-journal">Biosensors and Bioelectronics 258, 116328 (2024)</p>
-<h3><a href="https://www.sciencedirect.com/science/article/pii/S0956566324003336" rel="noopener noreferrer" target="_blank">Softening implantable bioelectronics: Material designs, applications, and future directions</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Biosensors and Bioelectronics 258, 116328</p>
+<time class="journal-publication-date" datetime="2024-08">Aug 2024</time>
+</div>
+<h5><a href="https://www.sciencedirect.com/science/article/pii/S0956566324003336" rel="noopener noreferrer" target="_blank">Softening implantable bioelectronics: Material designs, applications, and future directions</a></h5>
 <p class="pub-authors">S. Oh†, S. Lee†, S. W. Kim, <strong>C. Y. Kim</strong>, E. Y. Jeong, J. Lee, D. A Kwon, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">13</span><span>2024</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">13</span></div>
 <div class="pub-main">
-<p class="pub-journal">Science Advances 10(9), eadn1186 (2024)</p>
-<h3><a href="https://www.science.org/doi/10.1126/sciadv.adn1186" rel="noopener noreferrer" target="_blank">Body-temperature softening electronic ink for additive manufacturing of transformative bioelectronics via direct writing</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Science Advances 10(9), eadn1186</p>
+<time class="journal-publication-date" datetime="2024-02">Feb 2024</time>
+</div>
+<h5><a href="https://www.science.org/doi/10.1126/sciadv.adn1186" rel="noopener noreferrer" target="_blank">Body-temperature softening electronic ink for additive manufacturing of transformative bioelectronics via direct writing</a></h5>
 <p class="pub-authors">D. A Kwon†, S. Lee†, <strong>C. Y. Kim</strong>, I. Kang, S. Park*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">12</span><span>2024</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">12</span></div>
 <div class="pub-main">
-<p class="pub-journal">Science Advances 10(3), eadk5260 (2024)</p>
-<h3><a href="https://www.science.org/doi/10.1126/sciadv.adk5260" rel="noopener noreferrer" target="_blank">Skin-preparation-free, stretchable microneedle adhesive patches for reliable electrophysiological sensing and exoskeleton robot control</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Science Advances 10(3), eadk5260</p>
+<time class="journal-publication-date" datetime="2024-01">Jan 2024</time>
+</div>
+<h5><a href="https://www.science.org/doi/10.1126/sciadv.adk5260" rel="noopener noreferrer" target="_blank">Skin-preparation-free, stretchable microneedle adhesive patches for reliable electrophysiological sensing and exoskeleton robot control</a></h5>
 <p class="pub-authors">H. Kim†, J. Lee†, U. Heo, D. K. Jayashankar, K.-C. Agno, Y. Kim, <strong>C. Y. Kim</strong>, Y. Oh, S.-H. Byun, B. Choi, H. Jeong, W.-H. Yeo, Z. Li, S. Park, J. Xiao*, J. Kim*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">11</span><span>2023</span></div>
+</article>
+</div>
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2023">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2023">2023</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">4 publications</span>
+</div>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">11</span></div>
 <div class="pub-main">
-<p class="pub-journal">Advanced Functional Materials 33(24), 2214766 (2023)</p>
-<h3><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/adfm.202214766" rel="noopener noreferrer" target="_blank">3D shape-morphing display enabled by electrothermally responsive, stiffness-tunable liquid metal platform with stretchable electroluminescent device</a></h3><p class="pub-feature-note">Featured on the Inside Back Cover</p>
+<div class="journal-publication-meta">
+<p class="pub-journal">Advanced Functional Materials 33(24), 2214766</p>
+<time class="journal-publication-date" datetime="2023-06">Jun 2023</time>
+</div>
+<h5><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/adfm.202214766" rel="noopener noreferrer" target="_blank">3D shape-morphing display enabled by electrothermally responsive, stiffness-tunable liquid metal platform with stretchable electroluminescent device</a></h5>
 <p class="pub-authors">S. Oh, S. Lee, S.-H. Byun, S. Lee, <strong>C. Y. Kim</strong>, J. Yeo, S. Chung, S. Li, K.-I. Jang, J. Kang*, and J.-W. Jeong*</p>
+<p class="pub-feature-note">Featured on the Inside Back Cover</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">10</span><span>2023</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">10</span></div>
 <div class="pub-main">
-<p class="pub-journal">Journal of Neuroscience 43(9), 1555-1571 (2023)</p>
-<h3><a href="https://www.jneurosci.org/content/43/9/1555" rel="noopener noreferrer" target="_blank">Adolescent parvalbumin expression in the left orbitofrontal cortex shapes sociability in female mice</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Journal of Neuroscience 43(9), 1555-1571</p>
+<time class="journal-publication-date" datetime="2023-03">Mar 2023</time>
+</div>
+<h5><a href="https://www.jneurosci.org/content/43/9/1555" rel="noopener noreferrer" target="_blank">Adolescent parvalbumin expression in the left orbitofrontal cortex shapes sociability in female mice</a></h5>
 <p class="pub-authors">Y.-S. Jeon†, D. Jeong†, H. Kweon, J.-H. Kim, <strong>C. Y. Kim</strong>, Y. Oh, Y.-H. Lee, C. H. Kim, S.-G. Kim, J.-W. Jeong, E. Kim, and S.-H. Lee*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">09</span><span>2023</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">09</span></div>
 <div class="pub-main">
-<p class="pub-journal">Biosensors and Bioelectronics 223, 115018 (2023)</p>
-<h3><a href="https://www.sciencedirect.com/science/article/pii/S0956566322010582" rel="noopener noreferrer" target="_blank">Wireless, AI-enabled wearable thermal comfort sensor for energy-efficient, human-in-the-loop control of indoor temperature</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Biosensors and Bioelectronics 223, 115018</p>
+<time class="journal-publication-date" datetime="2023-03">Mar 2023</time>
+</div>
+<h5><a href="https://www.sciencedirect.com/science/article/pii/S0956566322010582" rel="noopener noreferrer" target="_blank">Wireless, AI-enabled wearable thermal comfort sensor for energy-efficient, human-in-the-loop control of indoor temperature</a></h5>
 <p class="pub-authors">S. Cho, H. J. Nam, C. Shi, <strong>C. Y. Kim</strong>, S.-H. Byun, K.-C. Agno, B. C. Lee, J. Xiao, J. Y. Sim*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">08</span><span>2023</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">08</span></div>
 <div class="pub-main">
-<p class="pub-journal">Nature Protocols 18, 3-21 (2023)</p>
-<h3><a href="https://www.nature.com/articles/s41596-022-00758-8" rel="noopener noreferrer" target="_blank">Customizable, wireless and implantable neural probe design and fabrication via 3D printing</a></h3><p class="pub-feature-note">Featured on the Cover</p>
+<div class="journal-publication-meta">
+<p class="pub-journal">Nature Protocols 18, 3-21</p>
+<time class="journal-publication-date" datetime="2023-01">Jan 2023</time>
+</div>
+<h5><a href="https://www.nature.com/articles/s41596-022-00758-8" rel="noopener noreferrer" target="_blank">Customizable, wireless and implantable neural probe design and fabrication via 3D printing</a></h5>
 <p class="pub-authors">K. E. Parker†, J. Lee†, J. R. Kim†, C. Kawakami, <strong>C. Y. Kim</strong>, R. Qazi, K.-I. Jang, J.-W. Jeong*, and J. G. McCall*</p>
+<p class="pub-feature-note">Featured on the Cover</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">07</span><span>2022</span></div>
+</article>
+</div>
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2022">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2022">2022</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">2 publications</span>
+</div>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">07</span></div>
 <div class="pub-main">
-<p class="pub-journal">Advanced Materials 34(44), 2204805 (2022)</p>
-<h3><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/adma.202204805" rel="noopener noreferrer" target="_blank">Beyond human touch perception: An adaptive robotic skin based on gallium microgranules for pressure sensory augmentation</a></h3><p class="pub-feature-note">Featured on the Front Cover</p>
+<div class="journal-publication-meta">
+<p class="pub-journal">Advanced Materials 34(44), 2204805</p>
+<time class="journal-publication-date" datetime="2022-11">Nov 2022</time>
+</div>
+<h5><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/adma.202204805" rel="noopener noreferrer" target="_blank">Beyond human touch perception: An adaptive robotic skin based on gallium microgranules for pressure sensory augmentation</a></h5>
 <p class="pub-authors">S. Lee†, S.-H. Byun†, <strong>C. Y. Kim</strong>, S. Cho, S. Park, J. Y. Sim, and J.-W. Jeong*</p>
+<p class="pub-feature-note">Featured on the Front Cover</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">06</span><span>2022</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">06</span></div>
 <div class="pub-main">
-<p class="pub-journal">Nature Biomedical Engineering 6, 771–786 (2022)</p>
-<h3><a href="https://www.nature.com/articles/s41551-021-00814-w" rel="noopener noreferrer" target="_blank">Scalable and modular wireless-network infrastructure for large-scale behavioural neuroscience</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Nature Biomedical Engineering 6, 771–786</p>
+<time class="journal-publication-date" datetime="2022-06">Jun 2022</time>
+</div>
+<h5><a href="https://www.nature.com/articles/s41551-021-00814-w" rel="noopener noreferrer" target="_blank">Scalable and modular wireless-network infrastructure for large-scale behavioural neuroscience</a></h5>
 <p class="pub-authors">R. Qazi†, K. E. Parker†, <strong>C. Y. Kim† (Co-first)</strong>, R. Rill, M. R. Norris, J. Chung, J. Bilbily, J. R. Kim, M. C. Walicki, G. B. Gereau, H. Lim, Y. Xiong, J. R. Lee, M. A. Tapia, A. V. Kravitz, M. J. Will, S. Ha*, J. G. McCall*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">05</span><span>2021</span></div>
+</article>
+</div>
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2021">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2021">2021</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">2 publications</span>
+</div>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">05</span></div>
 <div class="pub-main">
-<p class="pub-journal">ChemPhotoChem 5(2), 96-105 (2021)</p>
-<h3><a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/cptc.202000217" rel="noopener noreferrer" target="_blank">Implantable optofluidic systems for wireless in vivo photopharmacology</a></h3><p class="pub-feature-note">Featured on the Front Cover</p>
+<div class="journal-publication-meta">
+<p class="pub-journal">ChemPhotoChem 5(2), 96-105</p>
+<time class="journal-publication-date" datetime="2021-02">Feb 2021</time>
+</div>
+<h5><a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/cptc.202000217" rel="noopener noreferrer" target="_blank">Implantable optofluidic systems for wireless in vivo photopharmacology</a></h5>
 <p class="pub-authors">R. Qazi†, <strong>C. Y. Kim† (Co-first)</strong>, I. Kang, D. Binazarov, J. G. McCall*, and J.-W. Jeong*</p>
+<p class="pub-feature-note">Featured on the Front Cover</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">04</span><span>2021</span></div>
+</article>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">04</span></div>
 <div class="pub-main">
-<p class="pub-journal">Nature Communications 12, 535 (2021)</p>
-<h3><a href="https://www.nature.com/articles/s41467-020-20803-y" rel="noopener noreferrer" target="_blank">Soft subdermal implant capable of wireless battery charging and programmable controls for applications in optogenetics</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Nature Communications 12, 535</p>
+<time class="journal-publication-date" datetime="2021-01">Jan 2021</time>
+</div>
+<h5><a href="https://www.nature.com/articles/s41467-020-20803-y" rel="noopener noreferrer" target="_blank">Soft subdermal implant capable of wireless battery charging and programmable controls for applications in optogenetics</a></h5>
 <p class="pub-authors"><strong>C. Y. Kim†</strong>, M. J. Ku†, R. Qazi, H. J. Nam, J. W. Park, K. S. Nam, S. Oh, I. Kang, J.-H. Jang, W. Y. Kim, J.-H. Kim*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">03</span><span>2020</span></div>
+</article>
+</div>
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2020">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2020">2020</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">1 publication</span>
+</div>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">03</span></div>
 <div class="pub-main">
-<p class="pub-journal">Advanced Functional Materials 30(46), 2004285 (2020)</p>
-<h3><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/adfm.202004285" rel="noopener noreferrer" target="_blank">Rapidly customizable, scalable 3D-printed wireless optogenetic probes for versatile applications in neuroscience</a></h3><p class="pub-feature-note">Featured on the Back Cover</p>
+<div class="journal-publication-meta">
+<p class="pub-journal">Advanced Functional Materials 30(46), 2004285</p>
+<time class="journal-publication-date" datetime="2020-11">Nov 2020</time>
+</div>
+<h5><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/adfm.202004285" rel="noopener noreferrer" target="_blank">Rapidly customizable, scalable 3D-printed wireless optogenetic probes for versatile applications in neuroscience</a></h5>
 <p class="pub-authors">J. Lee†, K. E. Parker†, C. Kawakami†, J. R. Kim†, R. Qazi, J. Yea, S. Zhang, <strong>C. Y. Kim</strong>, J. Bilbily, J. Xiao, K.-I. Jang, J. G. McCall*, and J.-W. Jeong*</p>
+<p class="pub-feature-note">Featured on the Back Cover</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">02</span><span>2019</span></div>
+</article>
+</div>
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2019">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2019">2019</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">1 publication</span>
+</div>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">02</span></div>
 <div class="pub-main">
-<p class="pub-journal">Nature Biomedical Engineering 3, 655-669 (2019)</p>
-<h3><a href="https://www.nature.com/articles/s41551-019-0432-1" rel="noopener noreferrer" target="_blank">Wireless optofluidic brain probes for chronic neuropharmacology and photostimulation</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Nature Biomedical Engineering 3, 655-669</p>
+<time class="journal-publication-date" datetime="2019-08">Aug 2019</time>
+</div>
+<h5><a href="https://www.nature.com/articles/s41551-019-0432-1" rel="noopener noreferrer" target="_blank">Wireless optofluidic brain probes for chronic neuropharmacology and photostimulation</a></h5>
 <p class="pub-authors">R. Qazi†, A. M. Gomez†, D. C. Castro, Z. Zou, J. Y. Sim, Y. Xiong, J. Abdo, <strong>C. Y. Kim</strong>, A. Anderson, F. Lohner, S.-H. Byun, B. C. Lee, K.-I. Jang, J. Xiao, M. R. Bruchas*, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-  
-</article><article class="publication reveal">
-<div class="pub-year"><span class="pub-number">01</span><span>2018</span></div>
+</article>
+</div>
+<div class="journal-year-group" role="group" aria-labelledby="journal-year-2018">
+<div class="journal-year-heading reveal">
+<h4 id="journal-year-2018">2018</h4>
+<span aria-hidden="true" class="journal-year-rule"></span>
+<span class="journal-year-count">1 publication</span>
+</div>
+<article class="publication reveal">
+<div class="pub-year"><span class="pub-number">01</span></div>
 <div class="pub-main">
-<p class="pub-journal">Frontiers in Neuroscience 12, 764 (2018)</p>
-<h3><a href="https://www.frontiersin.org/articles/10.3389/fnins.2018.00764/full" rel="noopener noreferrer" target="_blank">Microscale inorganic LED based wireless neural systems for chronic in vivo optogenetics</a></h3>
+<div class="journal-publication-meta">
+<p class="pub-journal">Frontiers in Neuroscience 12, 764</p>
+<time class="journal-publication-date" datetime="2018-10">Oct 2018</time>
+</div>
+<h5><a href="https://www.frontiersin.org/articles/10.3389/fnins.2018.00764/full" rel="noopener noreferrer" target="_blank">Microscale inorganic LED based wireless neural systems for chronic in vivo optogenetics</a></h5>
 <p class="pub-authors">R. Qazi, <strong>C. Y. Kim</strong>, S.-H. Byun, and J.-W. Jeong*</p>
 </div>
 <span aria-hidden="true" class="pub-arrow">↗</span>
-</article></div><div class="cover-gallery-heading reveal" id="featured-cover-artwork">
+</article>
+</div>
+</div>
+<!-- END: JOURNAL ARTICLES BY YEAR -->
+<div class="cover-gallery-heading reveal" id="featured-cover-artwork">
 <div>
 <p class="eyebrow">Journal covers</p>
 <h3>Featured cover artwork</h3>
