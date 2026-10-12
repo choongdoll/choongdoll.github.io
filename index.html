@@ -205,6 +205,245 @@
   }
 }
 </style>
+<style id="site-typography-styles">
+/* Site-wide typography: readable supporting text with a consistent hierarchy.
+   Kept in index.html so the existing asset files do not need replacement. */
+:root {
+  --cyk-font-body: 20px;
+  --cyk-font-detail: 18px;
+  --cyk-font-authors: 19px;
+  --cyk-font-meta: 17px;
+  --cyk-font-label: 16px;
+  --cyk-font-action: 18px;
+}
+
+body {
+  font-size: var(--cyk-font-body);
+}
+
+.brand,
+.site-nav a {
+  font-size: 18px;
+}
+
+.brand-mark {
+  font-size: 15px;
+}
+
+.eyebrow {
+  font-size: var(--cyk-font-label);
+}
+
+.hero-role {
+  font-size: clamp(22px, 2.2vw, 27px);
+}
+
+.hero-lead,
+.research-area-body > p {
+  font-size: var(--cyk-font-body);
+}
+
+.button,
+.text-button,
+.profile-button,
+.text-link {
+  font-size: var(--cyk-font-action);
+}
+
+.hero-actions .text-button {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.portrait-note strong {
+  font-size: var(--cyk-font-detail);
+}
+
+.portrait-note span {
+  font-size: 16px;
+}
+
+.section-summary {
+  font-size: 21px;
+}
+
+.about-lead {
+  font-size: 22px;
+}
+
+.background-title > .eyebrow {
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: .04em;
+}
+
+.background-title > p:last-child,
+.background-items p {
+  font-size: var(--cyk-font-detail);
+}
+
+.background-items span,
+.research-area-index,
+.research-area-tags span {
+  font-size: var(--cyk-font-label);
+}
+
+.background-items h3 {
+  font-size: 23px;
+}
+
+.publication-subheading h3,
+.complete-publications-heading h3,
+.cover-gallery-heading h3 {
+  font-size: clamp(30px, 3.1vw, 40px);
+}
+
+.publication-subheading > p,
+.complete-publications-heading > p,
+.cover-gallery-heading > p,
+.publication-symbol-key {
+  font-size: var(--cyk-font-detail);
+}
+
+.publication-symbol-key strong,
+.publication-symbol-key .symbol-divider {
+  font-size: 1em;
+}
+
+.featured-publication-meta,
+.cover-journal {
+  font-size: var(--cyk-font-meta);
+}
+
+.featured-publication-authors,
+#journal-articles-by-year .pub-authors {
+  font-size: var(--cyk-font-authors);
+}
+
+.featured-publication-summary {
+  font-size: 19px;
+}
+
+.cover-card-body h4 {
+  font-size: 23px;
+}
+
+.cover-feature-note,
+#journal-articles-by-year .pub-feature-note {
+  font-size: var(--cyk-font-meta);
+}
+
+/* Preserve the approved year headings: 26–32px on desktop, 24px on mobile. */
+#journal-articles-by-year .pub-main h5 {
+  font-size: 24px;
+}
+
+#journal-articles-by-year .pub-journal {
+  font-size: var(--cyk-font-detail);
+}
+
+#journal-articles-by-year .journal-publication-date {
+  font-size: var(--cyk-font-meta);
+}
+
+#journal-articles-by-year .journal-year-count,
+#journal-articles-by-year .pub-number {
+  font-size: var(--cyk-font-label);
+}
+
+.honor-year,
+.honor-type,
+.honor-card > span {
+  font-size: var(--cyk-font-label);
+}
+
+.honor-feature > p:last-child {
+  font-size: 19px;
+}
+
+.honor-card p,
+.footer-inner {
+  font-size: var(--cyk-font-detail);
+}
+
+.contact-card p:not(.eyebrow) {
+  font-size: var(--cyk-font-body);
+}
+
+.contact-note {
+  font-size: var(--cyk-font-detail) !important;
+}
+
+/* Let longer text wrap naturally inside the existing card and grid layouts. */
+.background-items article,
+.portrait-note > div,
+.featured-publication-meta > span {
+  min-width: 0;
+}
+
+.background-items h3,
+.featured-publication-meta > span,
+.featured-publication-body h4,
+.cover-journal,
+.cover-card-body h4,
+.honor-card h3 {
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --cyk-font-body: 19px;
+    --cyk-font-detail: 17px;
+    --cyk-font-authors: 17px;
+    --cyk-font-meta: 16px;
+    --cyk-font-label: 15px;
+    --cyk-font-action: 17px;
+  }
+
+  .hero-role {
+    font-size: 22px;
+  }
+
+  .section-summary {
+    font-size: 19px;
+  }
+
+  .about-lead {
+    font-size: 20px;
+  }
+
+  .background-title > .eyebrow {
+    font-size: 24px;
+  }
+
+  .background-items h3 {
+    font-size: 22px;
+  }
+
+  .publication-subheading h3,
+  .complete-publications-heading h3,
+  .cover-gallery-heading h3 {
+    font-size: 28px;
+  }
+
+  .featured-publication-summary,
+  .honor-feature > p:last-child {
+    font-size: 18px;
+  }
+
+  .cover-card-body h4 {
+    font-size: 22px;
+  }
+
+  #journal-articles-by-year .pub-main h5 {
+    font-size: 21px;
+  }
+
+  #journal-articles-by-year .pub-journal {
+    font-size: 16px;
+  }
+}
+</style>
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
