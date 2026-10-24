@@ -444,6 +444,184 @@ body {
   }
 }
 </style>
+<style id="site-layout-wrap-styles">
+/* Wrapping and academic-background refinement.
+   All changes stay in index.html; the existing assets remain reusable. */
+
+/* Keep each research topic together when it fits the available width. */
+.hero-topics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 24px;
+  overflow: hidden;
+  letter-spacing: .08em;
+  line-height: 1.6;
+}
+.hero-topics > .hero-topic {
+  position: relative;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  text-wrap: balance;
+}
+.hero-topics .hero-topic-divider {
+  position: absolute;
+  left: -15px;
+  top: 0;
+  letter-spacing: 0;
+}
+/* The divider sits in the inter-topic gap and is clipped at the start of a row. */
+.wrap-phrase {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  text-wrap: wrap;
+}
+
+/* Give the academic entries the full panel width. */
+.background-panel {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+.background-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px 24px;
+}
+.background-title > .eyebrow {
+  margin: 0;
+}
+.background-title > p:last-child {
+  max-width: none;
+  margin: 0;
+}
+.background-items {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 30px 42px;
+}
+.background-items > article > .background-period {
+  display: block;
+  font-size: var(--cyk-font-label);
+  line-height: 1.5;
+}
+.background-items h4 {
+  margin: 5px 0 6px;
+  font-size: 23px;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  overflow-wrap: break-word;
+}
+.background-items .background-mentor,
+.background-items .background-distinction {
+  margin-top: 6px;
+}
+.background-items .background-distinction {
+  color: var(--purple);
+  font-weight: 650;
+}
+/* Date styling in the original stylesheet must not affect phrase/name spans. */
+.background-items .wrap-phrase {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+}
+
+/* Balance short headings; keep longer titles and paragraphs flowing naturally.
+   Browsers without these text-wrap values retain normal word wrapping. */
+.hero h1,
+.section-heading h2,
+.section-title-row h2,
+.background-title > .eyebrow,
+.background-items h4,
+.research-area-body h3,
+.publication-subheading h3,
+.complete-publications-heading h3,
+.cover-gallery-heading h3,
+.honor-feature h3,
+.honor-card h3,
+.contact-card h2,
+.portrait-note strong,
+.featured-publication-meta > span:first-child,
+.cover-journal {
+  text-wrap: balance;
+}
+.hero-role,
+.hero-lead,
+.about-lead,
+.section-summary,
+.background-title > p:last-child,
+.background-items p,
+.research-area-body > p,
+.publication-subheading > p,
+.cover-gallery-heading > p,
+.featured-publication-body h4,
+.featured-publication-authors,
+.featured-publication-summary,
+.cover-card-body h4,
+.cover-feature-note,
+#journal-articles-by-year .pub-main h5,
+#journal-articles-by-year .pub-journal,
+#journal-articles-by-year .pub-authors,
+#journal-articles-by-year .pub-feature-note,
+.honor-feature > p:last-child,
+.honor-card p,
+.contact-card p:not(.eyebrow),
+.footer-inner p {
+  text-wrap: pretty;
+}
+.hero-copy,
+.section-title-row > div,
+.section-summary,
+.research-area-card,
+.featured-publication-card,
+.cover-card,
+.honor-card,
+.contact-card > div {
+  min-width: 0;
+}
+
+@media (max-width: 980px) {
+  .section-title-row,
+  .publication-subheading,
+  .cover-gallery-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .section-summary {
+    max-width: 100%;
+  }
+  .cover-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .background-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .background-items {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+  .background-items h4 {
+    font-size: 22px;
+  }
+  .cover-gallery,
+  .honor-grid,
+  .honors-featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+</style>
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -473,9 +651,12 @@ body {
 <div aria-hidden="true" class="hero-orb hero-orb-two"></div>
 <div class="container hero-grid">
 <div class="hero-copy reveal">
-<p class="eyebrow">Implantable neural interfaces · Wireless bioelectronics</p>
+<p class="eyebrow hero-topics">
+<span class="hero-topic">Implantable neural interfaces</span>
+<span class="hero-topic"><span aria-hidden="true" class="hero-topic-divider">·</span>Wireless bioelectronics</span>
+</p>
 <h1 id="hero-title">Choong Yeon Kim, <span>Ph.D.</span></h1>
-<p class="hero-role">Postdoctoral Scholar at Northwestern University</p>
+<p class="hero-role">Postdoctoral Scholar at <span class="wrap-phrase">Northwestern University</span></p>
 <p class="hero-lead">Developing implantable neural interfaces and wireless bioelectronic systems for precise sensing, modulation, and connected biomedical applications.</p>
 <div class="hero-actions">
 <a class="button button-primary" href="#research">Explore research areas</a>
@@ -522,31 +703,35 @@ body {
 </div>
 </div>
 </div>
-<div class="background-panel reveal">
+<div aria-labelledby="academic-background-title" class="background-panel reveal" role="group">
 <div class="background-title">
-<p class="eyebrow">Academic background</p>
-<p>Selected appointments and training; full details are available in the CV.</p>
+<h3 class="eyebrow" id="academic-background-title">Academic background</h3>
+<p>Education and research appointments.</p>
 </div>
 <div class="background-items">
 <article>
-<span>2026–Present</span>
-<h3>Northwestern University</h3>
-<p>Postdoctoral Scholar · Prof. John A. Rogers</p>
+<span class="background-period">2026–Present</span>
+<h4>Northwestern University</h4>
+<p>Postdoctoral Scholar</p>
+<p class="background-mentor">Supervisor: <span class="wrap-phrase">Prof. John A. Rogers</span></p>
 </article>
 <article>
-<span>2024–Present</span>
-<h3>KAIST</h3>
-<p>Postdoctoral Scholar · Prof. Jae-Woong Jeong</p>
+<span class="background-period">2024–Present</span>
+<h4>KAIST</h4>
+<p>Postdoctoral Scholar</p>
+<p class="background-mentor">Supervisor: <span class="wrap-phrase">Prof. Jae-Woong Jeong</span></p>
 </article>
 <article>
-<span>2023</span>
-<h3>Stanford University</h3>
-<p>Visiting Researcher · Prof. Zhenan Bao</p>
+<span class="background-period">2018–2024</span>
+<h4>KAIST</h4>
+<p>Ph.D. in <span class="wrap-phrase">Electrical Engineering</span></p>
+<p class="background-mentor">Advisor: <span class="wrap-phrase">Prof. Jae-Woong Jeong</span></p>
 </article>
 <article>
-<span>2018–2024</span>
-<h3>KAIST</h3>
-<p>Ph.D. in Electrical Engineering</p>
+<span class="background-period">2014–2018</span>
+<h4>Sungkyunkwan University</h4>
+<p>B.Sc. in <span class="wrap-phrase">Electronic and</span> <span class="wrap-phrase">Electrical Engineering</span></p>
+<p class="background-distinction">Summa Cum Laude</p>
 </article>
 </div>
 </div>
