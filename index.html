@@ -498,18 +498,56 @@ body {
   max-width: none;
   margin: 0;
 }
-.background-items {
+.background-columns {
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
-  gap: 30px 42px;
+  gap: 42px;
+}
+.background-group {
+  min-width: 0;
+}
+.background-group-title {
+  margin: 0 0 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--purple);
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+.background-items {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 30px;
+}
+.background-school {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  min-width: 0;
+  margin: 5px 0 6px;
+}
+.background-items .background-country {
+  color: var(--muted);
+  font-size: var(--cyk-font-label);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
 }
 .background-items > article > .background-period {
   display: block;
   font-size: var(--cyk-font-label);
   line-height: 1.5;
 }
-.background-items h4 {
-  margin: 5px 0 6px;
+.background-school h5 {
+  max-width: 100%;
+  margin: 0;
   font-size: 23px;
   line-height: 1.35;
   letter-spacing: -.02em;
@@ -539,7 +577,7 @@ body {
 .section-heading h2,
 .section-title-row h2,
 .background-title > .eyebrow,
-.background-items h4,
+.background-school h5,
 .research-area-body h3,
 .publication-subheading h3,
 .complete-publications-heading h3,
@@ -604,6 +642,13 @@ body {
 }
 
 @media (max-width: 760px) {
+  .background-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+  .background-group-title {
+    font-size: 23px;
+  }
   .background-title {
     flex-direction: column;
     align-items: flex-start;
@@ -612,7 +657,7 @@ body {
     grid-template-columns: minmax(0, 1fr);
     gap: 25px;
   }
-  .background-items h4 {
+  .background-school h5 {
     font-size: 22px;
   }
   .cover-gallery,
@@ -708,31 +753,53 @@ body {
 <h3 class="eyebrow" id="academic-background-title">Academic background</h3>
 <p>Education and research appointments.</p>
 </div>
+<div class="background-columns">
+<section aria-labelledby="background-education-heading" class="background-group">
+<h4 class="background-group-title" id="background-education-heading">Education</h4>
 <div class="background-items">
 <article>
-<span class="background-period">2026–Present</span>
-<h4>Northwestern University</h4>
-<p>Postdoctoral Scholar</p>
-<p class="background-mentor">Supervisor: <span class="wrap-phrase">Prof. John A. Rogers</span></p>
-</article>
-<article>
-<span class="background-period">2024–Present</span>
-<h4>KAIST</h4>
-<p>Postdoctoral Scholar</p>
-<p class="background-mentor">Supervisor: <span class="wrap-phrase">Prof. Jae-Woong Jeong</span></p>
-</article>
-<article>
 <span class="background-period">2018–2024</span>
-<h4>KAIST</h4>
+<div class="background-school">
+<h5>KAIST</h5>
+<span class="background-country">South Korea</span>
+</div>
 <p>Ph.D. in <span class="wrap-phrase">Electrical Engineering</span></p>
 <p class="background-mentor">Advisor: <span class="wrap-phrase">Prof. Jae-Woong Jeong</span></p>
 </article>
 <article>
 <span class="background-period">2014–2018</span>
-<h4>Sungkyunkwan University</h4>
+<div class="background-school">
+<h5>Sungkyunkwan University</h5>
+<span class="background-country">South Korea</span>
+</div>
 <p>B.Sc. in <span class="wrap-phrase">Electronic and</span> <span class="wrap-phrase">Electrical Engineering</span></p>
 <p class="background-distinction">Summa Cum Laude</p>
 </article>
+</div>
+</section>
+<section aria-labelledby="background-postdoc-heading" class="background-group">
+<h4 class="background-group-title" id="background-postdoc-heading">Postdoctoral appointments</h4>
+<div class="background-items">
+<article>
+<span class="background-period">2026–Present</span>
+<div class="background-school">
+<h5>Northwestern University</h5>
+<span class="background-country">USA</span>
+</div>
+<p>Postdoctoral Scholar</p>
+<p class="background-mentor">Supervisor: <span class="wrap-phrase">Prof. John A. Rogers</span></p>
+</article>
+<article>
+<span class="background-period">2024–Present</span>
+<div class="background-school">
+<h5>KAIST</h5>
+<span class="background-country">South Korea</span>
+</div>
+<p>Postdoctoral Scholar</p>
+<p class="background-mentor">Supervisor: <span class="wrap-phrase">Prof. Jae-Woong Jeong</span></p>
+</article>
+</div>
+</section>
 </div>
 </div>
 </div>
